@@ -13,5 +13,17 @@ const generatePassword = () => {
     passwordBox.value = password;
 };
 
+
 button.addEventListener("click", generatePassword);
 
+copyBtn.addEventListener("click", () => {
+    const passwordCopy = passwordBox.value.trim();
+    if (!passwordCopy) {
+        alert("No password to copy, please generate one! hmar..");
+        return;
+    }
+    navigator.clipboard.writeText(passwordCopy)
+        .then(() => {
+            alert("copy made")
+    });
+});
